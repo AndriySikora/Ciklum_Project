@@ -16,7 +16,6 @@ $( document ).ready(function() {
 
         $parent.height(menuHeight);
         $child.height(menuHeight);
-
     }).on('mouseleave', function() {
         $(this).removeClass('active');
     });
