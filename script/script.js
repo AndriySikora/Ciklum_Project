@@ -1,33 +1,22 @@
 $( document ).ready(function() {
-    $('.js-extandable-top').on('click', function(e) {
-     $(this).siblings().removeClass('active');
-     $('.js-extandable-second-level').removeClass('active');
-     $(this).toggleClass('active');
+    $('.js-extandable-top').on('click', function() {
+        $(this).siblings().removeClass('active');
+        $('.js-extandable-second-level').removeClass('active');
+        $(this).toggleClass('active');
     });
 
-    $('.js-extandable-second-level').on('mouseover', function(e) {
-     e.stopPropagation();
-        var $parent = $(this).parent();
-        var $child = $($(this).find('.third-level-menu')[0]);
+    $('.js-extandable-second-level').on('mouseover', function() {
+        var itemHeight = {'height': 'auto'};
+        var $parent = $(this).parent().css(itemHeight);
+        var $child = $($(this).find('.third-level-menu')[0]).css(itemHeight);
+        var menuHeight = Math.max($parent.height(), $child.height());
 
-        $parent.css('height', 'auto');
-        $child.css('height', 'auto');
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
 
-     $(this).siblings().removeClass('active');
-     $(this).addClass('active');
-
-   var menuHeight = Math.max($parent.height(), $child.height());
-
-   $parent.height(menuHeight);
-   $child.height(menuHeight);
-
-    }).on('mouseleave', function(e) {
-        e.stopPropagation();
-        var $parent = $(this).parent();
-        var $child = $($(this).find('.third-level-menu')[0]);
-        
-        $parent.css('height', 'auto');
-        $child.css('height', 'auto');
+        $parent.height(menuHeight);
+        $child.height(menuHeight);
+    }).on('mouseleave', function() {
         $(this).removeClass('active');
     });
 });
