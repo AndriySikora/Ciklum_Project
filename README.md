@@ -1,4 +1,4 @@
-# Ciklum_Project
+# MixedPage_JS
 JS Internship Project
 
 Before launching project use npm install.
